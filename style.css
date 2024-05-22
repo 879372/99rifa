@@ -5,10 +5,11 @@
     box-sizing: border-box;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 768px) {
     #mainMenu {
         display: block;  /* Força a exibição da div em telas maiores */
     }
+
 }
 
 /* Define a animação de transição */
@@ -17,6 +18,12 @@
     max-height: 0;
     overflow: hidden;
     transition: max-height 1s ease; /* Define a transição suave da altura */
+
+}
+
+.hidden ul li a #entrar{
+    background-color: #e00;
+
 }
 
 .sc-b1b2e470-9 {

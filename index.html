@@ -68,18 +68,18 @@
 				<div class="w-full md:block md:w-auto " hidden="true" id="mainMenu">
 					<ul class="flex flex-col  md:flex-row px-8  gap-1 md:mt-0 md:text-sm md:font-medium">
 						<li><a href="#how-works"
-							class="text-center font-medium  focus:outline-none inline-flex items-center justify-center px-3 py-1 text-base hover:bg-gray-100  dark:hover:bg-primary-700 focus:ring-primary-300 dark:focus:ring-primary-800 rounded-lg">Como
+							class="text-center font-medium  focus:outline-none inline-flex items-center justify-center px-3 py-1 text-base hover:bg-gray-100  dark:hover:bg-primary-700 focus:ring-primary-300 dark:focus:ring-primary-800 rounded-lg opcao">Como
 								Funciona</a></li>
 						<li><a href="#pricing"
-							class="text-center font-medium  focus:outline-none inline-flex items-center justify-center px-3 py-1 text-base hover:bg-gray-100  dark:hover:bg-primary-700 focus:ring-primary-300 dark:focus:ring-primary-800 rounded-lg">Preços</a>
+							class="text-center font-medium  focus:outline-none inline-flex items-center justify-center px-3 py-1 text-base hover:bg-gray-100  dark:hover:bg-primary-700 focus:ring-primary-300 dark:focus:ring-primary-800 rounded-lg opcao">Preços</a>
 						</li>
 						<li><a href="#perguntas-frequentes"
-							class="text-center font-medium  focus:outline-none inline-flex items-center justify-center px-3 py-1 text-base hover:bg-gray-100  dark:hover:bg-primary-700 focus:ring-primary-300 dark:focus:ring-primary-800 rounded-lg">Perguntas
+							class="text-center font-medium  focus:outline-none inline-flex items-center justify-center px-3 py-1 text-base hover:bg-gray-100  dark:hover:bg-primary-700 focus:ring-primary-300 dark:focus:ring-primary-800 rounded-lg opcao">Perguntas
 								Frequentes</a></li>
 						<li><a href="https://wa.me/558420400148"
-							class="text-center font-medium  focus:outline-none inline-flex items-center justify-center px-3 py-1 text-base hover:bg-gray-100  dark:hover:bg-primary-700 focus:ring-primary-300 dark:focus:ring-primary-800 rounded-lg">Contato</a></li>
-						<li><a href="https://wa.me/558420400148"
-							class="text-center font-medium focus:ring-4 focus:outline-none inline-flex items-center justify-center px-3 py-1 text-base text-white bg-primary-700 hover:bg-primary-800 dark:bg-primary-600 dark:hover:bg-primary-700 focus:ring-primary-300 dark:focus:ring-primary-800 rounded-lg">Entrar</a>
+							class="text-center font-medium  focus:outline-none inline-flex items-center justify-center px-3 py-1 text-base hover:bg-gray-100  dark:hover:bg-primary-700 focus:ring-primary-300 dark:focus:ring-primary-800 rounded-lg opcao">Contato</a></li>
+						<li><a href="https://wa.me/558420400148" id="entrar"
+							class="text-center font-medium focus:ring-4 focus:outline-none inline-flex items-center justify-center px-3 py-1 text-base text-white bg-primary-700 hover:bg-primary-800 dark:bg-primary-600 dark:hover:bg-primary-700 focus:ring-primary-300 dark:focus:ring-primary-800 rounded-lg opcao">Entrar</a>
 						</li>
 					</ul>
 				</div>
@@ -649,97 +649,6 @@
 			style="position: absolute; left: 0px; top: 0px; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(50%); overflow: hidden; white-space: nowrap; width: 1px; height: 1px;">
 		</div>
 	</div>
-    <script>
-		let toggleButtons = document.querySelectorAll('.toggleButton');
-		let respostas = document.querySelectorAll('.hidden');
-
-		function toggleResposta(indice) {
-			const resposta = respostas[indice];
-			resposta.classList.toggle('hidden');
-			if (!resposta.classList.contains('hidden')) {
-				resposta.style.maxHeight = resposta.scrollHeight + 'px';
-				// Adicionamos um listener para o evento 'transitionend' para garantir que a altura máxima seja removida após a transição
-				resposta.addEventListener('transitionend', () => {
-					resposta.style.maxHeight = null;
-				}, { once: true });
-			} else {
-				resposta.style.maxHeight = resposta.scrollHeight + 'px';
-				// Esperamos um pequeno intervalo antes de ocultar a div para garantir que a transição seja iniciada
-				setTimeout(() => {
-					resposta.style.maxHeight = 0;
-				}, 50);
-			}
-		}
-
-		function verificarToggle() {
-			toggleButtons.forEach((botao, indice) => {
-				botao.addEventListener('click', () => {
-					toggleResposta(indice);
-				});
-			});
-		}
-
-		verificarToggle();
-
-		document.addEventListener('DOMContentLoaded', function() {
-			const cookieBanner = document.querySelector('.cookie-banner');
-			const cookieButton = document.querySelector('.cookie-button');
-
-			// Função para fechar o banner de cookies
-			function fecharBanner() {
-				cookieBanner.style.display = 'none';
-			}
-
-			// Adiciona um event listener para o botão de cookies
-			cookieButton.addEventListener('click', function() {
-				fecharBanner();
-			});
-		});
-		
-		function toggleMenu() {
-            var menu = document.getElementById('mainMenu');
-            if (menu.classList.contains('hidden')) {
-                menu.hidden = false;  // Remove o atributo hidden
-                menu.classList.remove('hidden');  // Remove a classe hidden
-            } else {
-                menu.hidden = true;  // Adiciona o atributo hidden
-                menu.classList.add('hidden');  // Adiciona a classe hidden
-            }
-        }
-
-        function handleResize() {
-            var menu = document.getElementById('mainMenu');
-            if (window.innerWidth >= 768) {
-                menu.hidden = false;  // Garante que o menu seja exibido em telas grandes
-                menu.classList.remove('hidden');  // Remove a classe hidden
-            } else {
-                // Se estiver em tela pequena e o menu foi explicitamente escondido, mantém escondido
-                if (menu.classList.contains('explicitly-hidden')) {
-                    menu.hidden = true;
-                    menu.classList.add('hidden');
-                }
-            }
-        }
-
-        document.getElementById('toggleButton').addEventListener('click', function() {
-            var menu = document.getElementById('mainMenu');
-            toggleMenu();
-            // Marcar explicitamente como escondido em telas pequenas
-            if (window.innerWidth < 768) {
-                if (menu.hidden) {
-                    menu.classList.add('explicitly-hidden');
-                } else {
-                    menu.classList.remove('explicitly-hidden');
-                }
-            }
-        });
-
-        // Adiciona o evento resize para garantir que o menu seja exibido em telas grandes
-        window.addEventListener('resize', handleResize);
-
-        // Verifica o estado inicial ao carregar a página
-        handleResize();
-    </script>
+	<script src="index.js"></script>
 </body>
-
 </html>
